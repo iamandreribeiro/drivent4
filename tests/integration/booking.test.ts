@@ -321,8 +321,12 @@ describe("PUT /booking:id", () => {
         it('Should respond with 400 when no booking id is given', async () => {
             const user = await createUser();
             const token = await generateValidToken(user);
+            const hotel = await createHotel();
+            const room = await createRoomWithHotelId(hotel.id);
     
-            const response = await server.put(`/booking/:id`).set("Authorization", `Bearer ${token}`);
+            const response = await server.put(`/booking/:id`).set("Authorization", `Bearer ${token}`).send({
+                roomId: room.id
+            });
 
             expect(response.status).toBe(httpStatus.BAD_REQUEST);
         });
