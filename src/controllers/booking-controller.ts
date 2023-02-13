@@ -58,6 +58,10 @@ export async function putBooking(req: AuthenticatedRequest, res: Response) {
         return res.sendStatus(httpStatus.BAD_REQUEST);
     }
 
+    if (isNaN(Number(bookingId)) || !bookingId) {
+        return res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+
     try {
         const booking = await bookingService.putBooking(userId, Number(bookingId), roomId);
 
