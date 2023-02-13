@@ -318,7 +318,7 @@ describe("PUT /booking:id", () => {
     });
 
     describe("when token is valid", () => {
-        it('Should respond with 400 when no booking id is given', async () => {
+        it('Should respond with status 400 when no booking id is given', async () => {
             const user = await createUser();
             const token = await generateValidToken(user);
             const hotel = await createHotel();
@@ -331,7 +331,7 @@ describe("PUT /booking:id", () => {
             expect(response.status).toBe(httpStatus.BAD_REQUEST);
         });
 
-        it('Should respond with 400 when no room id is given', async () => {
+        it('Should respond with status 400 when no room id is given', async () => {
             const user = await createUser();
             const token = await generateValidToken(user);
             const hotel = await createHotel();
