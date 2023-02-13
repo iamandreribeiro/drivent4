@@ -119,7 +119,6 @@ describe('GET /booking', () => {
             const booking = await createBooking(user.id, room.id);
 
             const response = await server.get("/booking").set("Authorization", `Bearer ${token}`);
-            console.log(response.body);
 
             expect(response.status).toBe(httpStatus.OK);
             expect(response.body).toEqual({
