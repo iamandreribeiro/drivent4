@@ -75,7 +75,6 @@ export async function putBooking(req: AuthenticatedRequest, res: Response) {
             return res.sendStatus(httpStatus.NOT_FOUND);
         }
         
-        console.log(error);
         return res.sendStatus(httpStatus.BAD_REQUEST);
     }
 }
